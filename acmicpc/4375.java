@@ -4,7 +4,8 @@ public class Main {
     private static int solve(int n) {
         int lastMod = 0;
         for (int i = 1; ; i++) {
-            if ((lastMod = (lastMod * 10 + 1) % n) == 0) {
+            lastMod = (lastMod * 10 + 1) % n;
+            if (lastMod == 0) {
                 return i;
             }
         }
