@@ -1,7 +1,11 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         final int maxSize = 1000000;
 
         // 소수 체크용 배열 선언
@@ -21,26 +25,31 @@ public class Main {
             }
         }
 
-        Scanner sc = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         while (true) {
-            int N = sc.nextInt();
+            int N = Integer.parseInt(br.readLine());
             if (N == 0) {
-                sc.close();
+                br.close();
                 break;
             }
 
             boolean flag = false;
             for (int i = 3; i <= N; i += 2) {
                 if (prime[i] && prime[N - i]) {
-                    System.out.println(N + " = " + i + " + " + (N - i));
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(N).append(" = ").append(i).append(" + ").append(N - i).append("\n");
+                    bw.write(sb.toString());
                     flag = true;
                     break;
                 }
             }
             if (!flag) {
-                System.out.println("Goldbach's conjecture is wrong.");
+                bw.write("Goldbach's conjecture is wrong.\n");
             }
         }
+        bw.flush();
+        bw.close();
     }
 }
