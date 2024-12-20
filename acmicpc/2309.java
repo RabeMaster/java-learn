@@ -19,7 +19,7 @@ public class Main {
         }
         br.close();
 
-        for (int i = 0; i < people.length; i++) {
+        for (int i = 0; i < people.length - 1; i++) {
             for (int q = i + 1; q < people.length; q++) {
                 if ((sum - people[i] - people[q]) == 100) {
                     people[i] = -1;
