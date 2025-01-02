@@ -63,23 +63,11 @@ public class Main {
 
         for (int x = 0; x < N; x++) { // 행
             for (int y = 0; y < N; y++) { // 열
-                //상
-                if (y > 0) {
-                    swap(x, y, x, y - 1); //스왑
-                    maxScore = Math.max(maxScore, getMaxScore());
-                    swap(x, y, x, y - 1); //복구
-                }
                 //하
                 if (y < N - 1) {
                     swap(x, y, x, y + 1); //스왑
                     maxScore = Math.max(maxScore, getMaxScore());
                     swap(x, y, x, y + 1); //복구
-                }
-                //좌
-                if (x > 0) {
-                    swap(x - 1, y, x, y); //스왑
-                    maxScore = Math.max(maxScore, getMaxScore());
-                    swap(x - 1, y, x, y); //복구
                 }
                 //우
                 if (x < N - 1) {
