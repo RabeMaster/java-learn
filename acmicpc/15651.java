@@ -26,12 +26,12 @@ public class Main {
 
         result = new int[M];
 
-        backtracking(0);
+        backTracking(0);
 
         bw.close();
     }
 
-    private static void backtracking(int depth) throws IOException {
+    private static void backTracking(int depth) throws IOException {
         if (depth == M) {
             for (int i = 0; i < M; i++) {
                 bw.write(result[i] + " ");
@@ -42,7 +42,7 @@ public class Main {
 
         for (int q = 1; q <= N; q++) {
             result[depth] = q;
-            backtracking(depth + 1);
+            backTracking(depth + 1);
         }
     }
 }
