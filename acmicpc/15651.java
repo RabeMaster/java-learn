@@ -26,6 +26,7 @@ public class Main {
 
         result = new int[M];
 
+        
         backTracking(0);
 
         bw.close();
